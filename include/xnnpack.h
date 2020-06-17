@@ -1027,11 +1027,28 @@ enum xnn_status xnn_setup_abs_nc_f32(
   float* output,
   pthreadpool_t threadpool);
 
+enum xnn_status xnn_create_add_nd_f16(
+  float output_min,
+  float output_max,
+  uint32_t flags,
+  xnn_operator_t* add_op_out);
+
 enum xnn_status xnn_create_add_nd_f32(
   float output_min,
   float output_max,
   uint32_t flags,
   xnn_operator_t* add_op_out);
+
+enum xnn_status xnn_setup_add_nd_f16(
+  xnn_operator_t add_op,
+  size_t num_input1_dims,
+  const size_t* input1_shape,
+  size_t num_input2_dims,
+  const size_t* input2_shape,
+  const void* input1,
+  const void* input2,
+  void* output,
+  pthreadpool_t threadpool);
 
 enum xnn_status xnn_setup_add_nd_f32(
   xnn_operator_t add_op,
